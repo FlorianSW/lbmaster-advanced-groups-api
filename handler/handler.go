@@ -72,11 +72,13 @@ func (h webHandler) handleListPrefixGroupMembers(w http.ResponseWriter, r *http.
 	} else {
 		m, err := h.repo.Members(domain.PrefixGroup{Index: idx})
 		if err != nil {
+			h.logger.Error("list-members", err)
 			w.WriteHeader(500)
 			return
 		}
 		c, err := json.Marshal(m)
 		if err != nil {
+			h.logger.Error("marshal-list-members", err)
 			w.WriteHeader(500)
 			return
 		}
@@ -96,6 +98,7 @@ func (h webHandler) handlePrefixGroupMembers(w http.ResponseWriter, r *http.Requ
 	if r.Method == "PUT" {
 		err = h.repo.AddMember(pg, domain.SteamUID(parts[1]))
 		if err != nil {
+			h.logger.Error("add-member", err)
 			w.WriteHeader(500)
 			return
 		}
@@ -103,6 +106,7 @@ func (h webHandler) handlePrefixGroupMembers(w http.ResponseWriter, r *http.Requ
 	} else if r.Method == "DELETE" {
 		err = h.repo.RemoveMember(pg, domain.SteamUID(parts[1]))
 		if err != nil {
+			h.logger.Error("remove-member", err)
 			w.WriteHeader(500)
 			return
 		}
@@ -110,6 +114,7 @@ func (h webHandler) handlePrefixGroupMembers(w http.ResponseWriter, r *http.Requ
 	} else if r.Method == "GET" {
 		m, err := h.repo.Members(pg)
 		if err != nil {
+			h.logger.Error("check-member", err)
 			w.WriteHeader(500)
 			return
 		}
@@ -144,6 +149,7 @@ func (h webHandler) handleListPrefixGroups(w http.ResponseWriter, r *http.Reques
 	}
 	c, err := json.Marshal(result)
 	if err != nil {
+		h.logger.Error("marshal-list-prefix-groups", err)
 		w.WriteHeader(500)
 		return
 	}
