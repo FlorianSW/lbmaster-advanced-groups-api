@@ -1,0 +1,74 @@
+{
+  "currentVersion": 3,
+  "displayGroupTagsInfrontOfName": 0,
+  "enableGlobalChatFeature": 1,
+  "enableMuteVote": 0,
+  "muteVoteMinPlayers": 0,
+  "muteVoteMuteTimeMins": 0,
+  "muteVotePercentile": 0.0,
+  "channels": [
+    {
+      "channelName": "Direct",
+      "channelColor": {
+        "a": 255,
+        "r": 105,
+        "g": 105,
+        "b": 105
+      },
+      "globalChannel": 0,
+      "groupChannel": 0,
+      "directChannel": 1,
+      "defaultChannel": 0
+    },
+    {
+      "channelName": "Global",
+      "channelColor": {
+        "a": 255,
+        "r": 0,
+        "g": 255,
+        "b": 0
+      },
+      "globalChannel": 1,
+      "groupChannel": 0,
+      "directChannel": 0,
+      "defaultChannel": 1
+    },
+    {
+      "channelName": "Group",
+      "channelColor": {
+        "a": 255,
+        "r": 152,
+        "g": 251,
+        "b": 152
+      },
+      "globalChannel": 0,
+      "groupChannel": 1,
+      "directChannel": 0,
+      "defaultChannel": 0
+    }
+  ],
+  "colorBattleyeMessage": {
+    "a": 255,
+    "r": 0,
+    "g": 191,
+    "b": 255
+  },
+  "prefixGroups": [
+    {
+      "prefix": "[VIP] ",
+      "colorR": 255,
+      "colorG": 215,
+      "colorB": 0,
+      "members": [
+        "76561111111111111",
+        "76561122222222222"
+      ]
+    }
+  ],
+  "badWords": [
+  ],
+  "enabledBadWordsCensor": 1,
+  "blockBadWordContainingMessages": 1,
+  "badWordsBlockedMessage": "Your Message contains Bad Words!",
+  "badWordsMuteTime": 10
+}
