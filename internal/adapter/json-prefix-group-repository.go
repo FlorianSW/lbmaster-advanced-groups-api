@@ -114,7 +114,7 @@ func (r jsonPrefixGroupRepository) modifyPrefixGroup(group domain.PrefixGroup, m
 						return errors.New("members has an unknown type")
 					}
 
-					c, err := json.Marshal(toSave)
+					c, err := json.MarshalIndent(toSave, "", "  ")
 					if err != nil {
 						return err
 					}
