@@ -30,8 +30,6 @@ Basically, it's as easy as that:
 - Change the following config, according to your setup:
     - the `port` -> it defaults to `8080`, which is fine. If the port, however, is already used, choose some other
       port (e.g. when you run multiple instances of this tool)
-    - the `api_key` -> choose any long and random string; it is used as an authorization, whoever has this string can
-      modify your config, choose a secure string; you do not have to remember it
     - the `advanced_groups_config_path` -> the absolute path to the Advanced Groups config file (`\` needs to be escaped
       with another backslash, e.g. a path like `D:\some\path\Config.json` becomes `D:\\some\\path\\Config.json`)
 - Start the tool again by double-clicking it
@@ -45,8 +43,8 @@ The tool offers a REST-like API, which allows you to modify some parts of the co
 
 ### Authentication
 
-The tool uses a pre-configured API key to authenticate and authorize requests. Everyone who knows this API key can issue
-requests to the tool and they will be fulfilled.
+The tool uses a pre-configured API key to authenticate and authorize requests, which can be found in the `config.json`.
+Everyone who knows this API key can issue requests to the tool, and they will be fulfilled.
 
 In order to make an authenticated request, add the `Authorization` header to your HTTP requests with the `Bearer`
 scheme, e.g.

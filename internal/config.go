@@ -2,8 +2,13 @@ package internal
 
 import (
 	"code.cloudfoundry.org/lager"
+	"crypto/hmac"
+	"crypto/sha256"
+	"encoding/hex"
 	"encoding/json"
+	"github.com/google/uuid"
 	"os"
+	"time"
 )
 
 type Config struct {
@@ -27,6 +32,7 @@ func readConfig(path string, logger lager.Logger) (Config, error) {
 		logger.Info("create-config")
 		config = Config{
 			Port: 8080,
+			ApiKey: generateApiKey(),
 		}
 	} else {
 		logger.Info("read-existing-config")
@@ -48,4 +54,11 @@ func persistConfig(path string, config Config) error {
 		return err
 	}
 	return os.WriteFile(path, c, 0655)
+}
+
+func generateApiKey() string {
+	r := uuid.New().String()
+	h := hmac.New(sha256.New, []byte(r))
+	h.Write([]byte(time.Now().String()))
+	return hex.EncodeToString(h.Sum(nil))
 }
