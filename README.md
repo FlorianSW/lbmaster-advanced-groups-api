@@ -21,7 +21,7 @@ Basically, it's as easy as that:
 
 - Download the latest version of this tool from
   the [automated builds](https://github.com/FlorianSW/lbmaster-advanced-groups-api/actions/workflows/build.yml) (take
-  the most-top green build)
+  the most-top green build) or from the [releases page](https://github.com/FlorianSW/lbmaster-advanced-groups-api/releases)
     - There is a windows and linux binary, take the one for your platform
 - Copy the binary to some location on your server (the server where your DayZ server runs as well)
 - Start the executable once (if a window opens, close that for now)
